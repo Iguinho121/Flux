@@ -1,0 +1,88 @@
+body {
+    background-color: #1e293b;
+
+    h1 {
+        color: white;
+    }
+
+    h2 {
+        color: white;
+    }
+}
+
+/*------------Produtos------------*/
+.Produtos {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    gap: 20px;
+}
+
+.Produto01 {
+    padding: 10px;
+    border: 5px solid black;
+}
+
+.Produto02 {
+    padding: 10px;
+    border: 5px solid black;
+}
+
+.Produto03 {
+    padding: 10px;
+    border: 5px solid black;
+}
+
+/*----------Animação dos produtos----------*/
+.Produto01:hover {
+    transition: all 0.07s;
+    transform: translateX(10px);
+    /* Um leve deslocamento*/
+    padding-left: 20px;
+}
+
+.Produto02:hover {
+    transition: all 0.07s;
+    transform: translateX(10px);
+    /* Um leve deslocamento*/
+    padding-left: 20px;
+}
+
+.Produto03:hover {
+    transition: all 0.07s;
+    transform: translateX(10px);
+    /* Um leve deslocamento*/
+    padding-left: 20px;
+}
+
+/*------Botão de preço-----*/
+.Bot-preco {
+    background-color: rgb(76, 147, 209);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    border: transparent;
+}
+
+.Bot-preco:hover {
+    background-color: rgb(51, 131, 62);
+    transform: translateY(-2px);
+}
+
+/*-------Botão carrinho----------*/
+.carrinho {
+    background-color: rgb(51, 99, 131);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    border: transparent;
+}
+
+.carrinho:hover {
+    background-color: rgb(51, 131, 62);
+    transform: translateY(-2px);
+}
