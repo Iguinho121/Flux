@@ -2,7 +2,11 @@ body {
     background-color: #1e293b;
 
     h1 {
+        text-align: left;
+        padding: 40px;
+        margin: 0px;
         color: white;
+
     }
 
     h2 {
@@ -13,14 +17,20 @@ body {
 /*------------Produtos------------*/
 .Produtos {
     display: flex;
-    justify-content: center;
-    padding: 15px;
-    gap: 20px;
+    justify-content: right;
+    padding: 80px;
+    gap: 25px;  
 }
+
 
 .Produto01 {
     padding: 10px;
     border: 5px solid black;
+}
+
+.img-01 {
+    width: 300px;
+    border-radius: 20px;
 }
 
 .Produto02 {
@@ -28,9 +38,19 @@ body {
     border: 5px solid black;
 }
 
+.img-02{
+    width: 300px;
+    border-radius: 20px;
+}
+
 .Produto03 {
     padding: 10px;
     border: 5px solid black;
+}
+
+.img-03{
+    width: 300px;
+    border-radius: 20px;
 }
 
 /*----------Animação dos produtos----------*/
@@ -67,8 +87,9 @@ body {
 }
 
 .Bot-preco:hover {
+    transition: transform 0.3s;
     background-color: rgb(51, 131, 62);
-    transform: translateY(-2px);
+    transform: scale(1.03);
 }
 
 /*-------Botão carrinho----------*/
@@ -85,4 +106,106 @@ body {
 .carrinho:hover {
     background-color: rgb(51, 131, 62);
     transform: translateY(-2px);
+}
+
+
+/*----------Menu lateral----------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Layout principal */
+
+.app-robo {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #090d16;
+    color: #ffffff;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+    height: 100vh;
+}
+
+.sidebar-brand {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 0 24px 20px 24px;
+    border-bottom: 1px solid #1e293b;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 22px 24px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+} 
+
+.sidebar-menu li a:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.sidebar-menu li.active a {
+    background-color: #1e293b;
+    color: #38bdf8;
+    border-left: 4px solid #38bdf8;
+    font-weight: 600;
+}
+
+/* Estilo do Card com Imagem no rodapé */
+.sidebar-card {
+    margin-top: auto;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #0f172a;
+    border-radius: 16px;              
+    text-align: center;
+    border: 1px solid #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 12px auto;
+    border-radius: 12px;
+}
+
+.sidebar-card p {
+    font-size: 0.8rem;
+    color: #38bdf8;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
