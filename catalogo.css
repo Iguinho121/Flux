@@ -1,112 +1,22 @@
 body {
     background-color: #1e293b;
 
-    h1 {
-        text-align: left;
-        padding: 40px;
-        margin: 0px;
-        color: white;
-
-    }
-
     h2 {
         color: white;
     }
 }
 
-/*------------Produtos------------*/
-.Produtos {
+/*------Cabeçalho-------*/
+.cabecalho{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 20px;
     display: flex;
-    justify-content: right;
-    padding: 80px;
-    gap: 25px;  
+    gap: 200px;
 }
 
 
-.Produto01 {
-    padding: 10px;
-    border: 5px solid black;
-}
 
-.img-01 {
-    width: 300px;
-    border-radius: 20px;
-}
-
-.Produto02 {
-    padding: 10px;
-    border: 5px solid black;
-}
-
-.img-02{
-    width: 300px;
-    border-radius: 20px;
-}
-
-.Produto03 {
-    padding: 10px;
-    border: 5px solid black;
-}
-
-.img-03{
-    width: 300px;
-    border-radius: 20px;
-}
-
-/*----------Animação dos produtos----------*/
-.Produto01:hover {
-    transition: all 0.07s;
-    transform: translateX(10px);
-    /* Um leve deslocamento*/
-    padding-left: 20px;
-}
-
-.Produto02:hover {
-    transition: all 0.07s;
-    transform: translateX(10px);
-    /* Um leve deslocamento*/
-    padding-left: 20px;
-}
-
-.Produto03:hover {
-    transition: all 0.07s;
-    transform: translateX(10px);
-    /* Um leve deslocamento*/
-    padding-left: 20px;
-}
-
-/*------Botão de preço-----*/
-.Bot-preco {
-    background-color: rgb(76, 147, 209);
-    border-radius: 8px;
-    padding: 10px;
-    cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-    border: transparent;
-}
-
-.Bot-preco:hover {
-    transition: transform 0.3s;
-    background-color: rgb(51, 131, 62);
-    transform: scale(1.03);
-}
-
-/*-------Botão carrinho----------*/
-.carrinho {
-    background-color: rgb(51, 99, 131);
-    border-radius: 8px;
-    padding: 10px;
-    cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-    border: transparent;
-}
-
-.carrinho:hover {
-    background-color: rgb(51, 131, 62);
-    transform: translateY(-2px);
-}
 
 
 /*----------Menu lateral----------*/
@@ -163,7 +73,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s ease;
-} 
+}
 
 .sidebar-menu li a:hover {
     background-color: #1e293b;
@@ -186,7 +96,7 @@ body {
     margin-bottom: 20px;
     padding: 16px;
     background-color: #0f172a;
-    border-radius: 16px;              
+    border-radius: 16px;
     text-align: center;
     border: 1px solid #1e293b;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -209,3 +119,6 @@ body {
     justify-content: center;
     gap: 6px;
 }
+
+
+
