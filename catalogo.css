@@ -1,32 +1,74 @@
 body {
-    background-color: #1e293b;
+    min-height: 100vh;
+    background-color: #03050a;
 
-    h2 {
-        color: white;
-    }
+    background-image:
+        radial-gradient(ellipse at 15% 30%, rgba(35, 85, 180, 0.22), transparent 45%),
+        radial-gradient(ellipse at 85% 65%, rgba(25, 65, 150, 0.17), transparent 42%),
+
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+
+        linear-gradient(180deg, #0b101c, #03050a 75%);
+
+    background-size:
+        auto,
+        auto,
+        40px 40px,
+        40px 40px,
+        200px 200px,
+        200px 200px,
+        100% 100%;
+
+    background-attachment: fixed;
+    color: white;
+    font-family: Arial, sans-serif;
 }
+
 
 /*------Cabeçalho-------*/
-.cabecalho{
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 20px;
-    display: flex;
-    gap: 200px;
+.cabecalho {
+    padding: 25px;
+    background-color: #090E24;
+    border: #141E46;
+    border-radius: 20px;
+    margin-left: 15px;
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
 }
 
+.cabecalho:hover{
+    transform: translateX(-2px);
+    border-color: #1e293b;
+    box-shadow: 0 10px 25px rgba(0, 184, 148, 0.4) ; 
+}
 
+.text-cabecalho{
+    color: #F9C23D;
+}
 
+.text01-cabecalho{
+    color: #C6CFDB;
+}
+
+main {
+    flex: 1;
+    min-width: 0;
+}
 
 
 /*----------Menu lateral----------*/
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 
 /* Layout principal */
 
@@ -120,5 +162,155 @@ body {
     gap: 6px;
 }
 
+/*---------Cards---------*/
+/* Seu código ajustado */
+.cards {
+    display: flex;
+    justify-content: center;
+}
+
+.card-org {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.border {
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 700; /*deixa a letra mais destacada*/ 
+    text-transform: uppercase; /*deixa todas as letras em maiúsculas*/
+    letter-spacing: 0.5px; /*aumenta o espaçamento da letra*/
+    margin-bottom: 20px;
+}
 
 
+.border-01 {
+    background-color: #2c1204;
+    color: #f59e0b;
+    border: 1px solid #b45309;
+    border-radius: 50px;
+}
+
+.border-02 {
+    background-color: #042117;
+    color: #34d399;
+    border: 1px solid #059669;
+    border-radius: 8px;
+}
+
+.card-title{
+   margin-bottom: 10px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 36px;
+}
+
+.p-card{
+    color: #8b9bb4;
+    margin-bottom: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.hr{
+   margin-bottom: 15px;
+}
+
+.card-pecas{
+  font-size: 36px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.pecas-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.pecas-lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Divisor sutil entre itens */
+  font-size: 13px;
+}
+
+.item-nome {
+  color: #cbd5e1;
+}
+
+.qtd {
+  color: #38bdf8; /* Azul claro / Cyan em destaque */
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.estoque {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.card-01 {
+    border: 2px solid #1e293b;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-01:hover{
+    transform: translateY(-8px); /* Eleva o card para cima */
+    border-color: #00b894; /* Cor verde/ciano neon na borda */
+    box-shadow: 0 10px 25px rgba(0, 184, 148, 0.4); /* Efeito luminoso (glow) */
+}
+
+.card-02 {
+    border: 2px solid #1e293b;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-02:hover{
+    transform: translateY(-8px); /* Eleva o card para cima */
+    border-color: #00b894; 
+    box-shadow: 0 10px 25px rgba(0, 184, 148, 0.4); /* Efeito luminoso (glow) */
+}
+
+.card-03 {
+    border: 2px solid #1e293b;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-03:hover{
+    transform: translateY(-8px); 
+    border-color: #00b894;
+    box-shadow: 0 10px 25px rgba(0, 184, 148, 0.4); /* Efeito luminoso (glow) */
+}
+
+/*-------Botão-------*/
+.botao{
+    color: black;
+    background-color: #00b894;
+    border: none;
+    border-radius: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.1s ease;
+}
+
+.botao:hover{
+    background-color: #00dcaf;
+    transform: translateY(2px);
+}
