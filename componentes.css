@@ -34,7 +34,6 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Layout principal */
 
 .app-robo {
     display: flex;
@@ -79,7 +78,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s ease;
-} 
+}
 
 .sidebar-menu li a:hover {
     background-color: #1e293b;
@@ -94,7 +93,6 @@ body {
     font-weight: 600;
 }
 
-/* Estilo do Card com Imagem no rodapé */
 .sidebar-card {
     margin-top: auto;
     margin-left: 16px;
@@ -102,7 +100,7 @@ body {
     margin-bottom: 20px;
     padding: 16px;
     background-color: #0f172a;
-    border-radius: 16px;              
+    border-radius: 16px;
     text-align: center;
     border: 1px solid #1e293b;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -126,7 +124,85 @@ body {
     gap: 6px;
 }
 
-/* Conteúdo Principal */
+
+.titulo-principal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    position: relative;
+    width: 100%;
+    gap: 18px;
+
+    padding-bottom: 18px;
+    margin-bottom: 30px;
+
+    border-bottom: none;
+    box-shadow: none;
+}
+
+
+.titulo-principal .header-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.titulo-principal .header-imagem .icone-caixa {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.5));
+}
+
+
+.titulo-principal .header-texto h1 {
+    margin: 0;
+    font-family: 'Trebuchet MS', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #e0f7ff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-shadow:
+        0 0 3px #ffffff,
+        0 0 6px #7dd3fc,
+        0 0 12px #38bdf8,
+        0 0 22px #0ea5e9;
+}
+
+
+.titulo-principal .header-texto p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-style: italic;
+}
+
+
+.titulo-principal::after {
+    content: "";
+    position: absolute;
+    bottom: 42px;
+    left: 25%;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #38bdf8,
+        #22d3ee
+    );
+    border-radius: 10px;
+    box-shadow:
+        0 0 5px #38bdf8,
+        0 0 12px rgba(34, 211, 238, 0.8),
+        0 0 20px rgba(34, 211, 238, 0.4);
+}
+
 
 .main {
     flex: 1;
@@ -142,22 +218,11 @@ body {
     flex: 1;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #e2e8f0;
-}
-
 h1 {
     color: #ffffff;
     font-size: 1.75rem;
     font-weight: 700;
 }
-
-/* Barra de Ações */
 
 .barra-acoes {
     display: flex;
@@ -183,7 +248,7 @@ h1 {
     transition: border-color 0.2s ease;
 }
 
-.caixa-procurar :focus-within {
+.caixa-procurar:focus-within {
     border-color: #38dbf8;
 }
 
@@ -264,8 +329,6 @@ h1 {
     transform: translateY(-3px);
 }
 
-/* Tabela */
-
 .tabela {
     width: 100%;
     background-color: rgba(9, 14, 26, 0.7);
@@ -276,14 +339,12 @@ h1 {
     margin-top: 20px;
 }
 
-.tabela-cabecalho,
-.tabela-linha {
+.tabela-cabecalho, .tabela-linha {
     display: grid;
     grid-template-columns: 2.5fr 1.3fr 1.1fr 1.6fr 1fr 1.3fr 1fr 1fr;
     align-items: center;
     padding: 14px 20px;
 }
-
 
 .tabela-cabecalho {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -350,10 +411,7 @@ h1 {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #94a3b8;
-}
 
-.coluna_disponivel {
     font-weight: 700;
     color: #38bdf8;
 }
