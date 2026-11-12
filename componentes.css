@@ -100,12 +100,23 @@ body {
 }
 
 .menu-icon {
+    font-size: 30px;
     width: 30px;
     height: 30px;
-    object-fit: contain;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    color: #00cfff;
     filter: drop-shadow(0 0 5px #00cfff);
     transition: all 0.3s ease;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 30;
+}
+
+.sidebar-menu a:hover .menu-icon,
+.sidebar-menu li.active .menu-icon {
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 30;
+    filter: drop-shadow(0 0 8px #00cfff);
 }
 
 .sidebar-menu li a:hover {
