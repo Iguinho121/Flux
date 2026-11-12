@@ -1,6 +1,16 @@
 CREATE DATABASE IF NOT EXISTS flux;
 USE flux;
 
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo_usuario ENUM('Comum', 'Admin') DEFAULT 'Comum',
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
 CREATE TABLE categorias (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
@@ -64,7 +74,7 @@ CREATE TABLE projeto_componentes (
 CREATE TABLE movimentacoes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     componente_id INT NOT NULL,
-    projeto_id INT, -- Pode ser nulo se for apenas uma compra/entrada de estoque
+    projeto_id INT, 
     tipo_movimentacao ENUM('Entrada', 'Saida', 'Emprestimo', 'Devolucao') NOT NULL,
     quantidade INT NOT NULL,
     data_movimentacao DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -93,6 +103,14 @@ CREATE TABLE kit_componentes (
     UNIQUE (kit_id, componente_id)
 );
 
+
+-- Administrador
+INSERT INTO usuarios (nome, email, senha, tipo_usuario) 
+VALUES ('Administrador Geral', 'igor.s@roboparts.com', '123456', 'Admin');
+
+-- Usuario comum
+INSERT INTO usuarios (nome, email, senha, tipo_usuario) 
+VALUES ('Aluno Teste', 'vitor@email.com', '123456', 'Comum');
 
 INSERT INTO categorias (nome, descricao) VALUES 
 ('Microcontroladores', 'Placas de desenvolvimento e processamento central'),
@@ -137,3 +155,5 @@ INSERT INTO kit_componentes (kit_id, componente_id, quantidade) VALUES
 (1, 1, 1), -- 1 Arduino no Kit
 (1, 2, 1), -- 1 Sensor no Kit
 (1, 3, 1); -- 1 Servo no Kit
+
+
