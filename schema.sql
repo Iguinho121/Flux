@@ -135,7 +135,7 @@ INSERT INTO componentes (nome, descricao, codigo, categoria_id, fornecedor_id, c
 ('Arduino Uno R3', 'Placa microcontroladora ATmega328P', 'ARD-001', 1, 1, 1, 10, 8, 3),
 ('Sensor Ultrassônico HC-SR04', 'Sensor de distância', 'SEN-001', 2, 2, 1, 15, 15, 5),
 ('Micro Servo 9g SG90', 'Servo motor pequeno para articulações', 'ATU-001', 3, 1, 2, 4, 4, 5); 
--- ESTOQUE ABAIXO DO MINIMO PARA TESTE, (TEM QUE APARECER MENSAGEM DE ALERTA CASO O ESTOQUE ESTEJA ABAIXO DO MINIMO)
+-- (TEM QUE APARECER MENSAGEM DE ALERTA CASO O ESTOQUE ESTEJA ABAIXO DO MINIMO)
 
 INSERT INTO projeto_componentes (projeto_id, componente_id, quantidade) VALUES 
 (1, 1, 1), -- carrinho usa 1 arduino
