@@ -25,7 +25,6 @@ body {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding: 20px;
 }
 
@@ -37,6 +36,7 @@ body {
     max-width: 1000px;
     gap: 50px;
     margin: auto;
+    animation: surgirSuave 0.4s ease-out forwards;
 }
 
 .info-esquerda {
@@ -157,10 +157,11 @@ form {
     font-size: 14px;
     font-weight: 600;
     border-radius: 6px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
-.aba:hover {
+.aba:not(.ativa):hover {
+    background-color: rgba(255, 255, 255, 0.05);
     color: #f8fafc;
 }
 
@@ -254,7 +255,7 @@ input[type="password"] {
     width: 100%;
     font-family: inherit;
     font-size: 15px;
-    padding: 12px 44px 12px 44px; /* Ajustado para ícones em ambos os lados na senha */
+    padding: 12px 44px 12px 44px; 
     background-color: #1e293b;
     border: 1px solid #334155;
     border-radius: 8px;
@@ -288,7 +289,7 @@ input:focus-visible {
 
 .icone-check {
     font-size: 14px;
-    color: #64748b; /* COR DO SIMBOLO DE CHECK( O originl estava verde) */
+    color: #64748b; 
 }
 
 button {
@@ -366,82 +367,41 @@ button:focus-visible {
     }
 }
 
-/* Animação nas duas paginas  */
-.container-principal {
-    animation: surgirSuave 0.4s ease-out forwards;
-}
-
-
-.aba {
-    transition: all 0.3s ease;
-    border-radius: 6px;
-}
-
-.aba:not(.ativa):hover {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-
-
-.card-alerta-sistema {
-    margin-top: 40px;
-    background-color: rgba(15, 23, 42, 0.6); 
-    border: 1px solid #1e293b;
-    border-radius: 10px;
-    padding: 16px;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-
-.card-alerta-sistema::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: #f59e0b; 
-}
-
-.alerta-cabecalho {
+/* --- Alerta --- */
+.alerta-moderno {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 8px;
     font-size: 14px;
-    font-weight: 600;
-    color: #f8fafc;
-    margin-bottom: 8px;
+    font-weight: 500;
+    line-height: 1.4;
+    animation: surgirSuave 0.3s ease-out;
 }
 
-.icone-aviso {
-    color: #f59e0b;
-    font-size: 18px !important;
+.alerta-icone {
+    font-size: 22px !important;
+    flex-shrink: 0;
 }
 
-.alerta-corpo {
-    font-size: 13px;
-    color: #94a3b8;
-    line-height: 1.5;
-    padding-left: 26px; 
+.alerta-sucesso {
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #86efac;
 }
 
-.alerta-corpo strong {
-    color: #e2e8f0;
+.alerta-erro {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
 }
 
-
-
-/* 
-(FOOTER)
- */
-
+/* (FOOTER) */
 .rodape-avancado {
     background-color: #030712;
     border-top: 2px solid #1e293b;
-    padding: 25px; /* Reduzi de 60px para 30px na parte superior e inferior */
+    padding: 25px; 
     font-family: Arial, sans-serif;
     
     width: 100%;
@@ -496,15 +456,15 @@ button:focus-visible {
 }
 
 .rodape-comunidade span {
-    font-size: 18px; /* Tamanho do ícone do discord/fórum */
+    font-size: 18px; /* Tamanho do ícone do FOOTER */
 }
 
 .rodape-menus {
     display: flex;
     gap: 60px; 
     flex-wrap: wrap;
-    margin: 0 auto; /* Empurra todo o bloco de links para o meio da tela */
-    padding-top: 20px; /* Abaixa os links um pouco, como você pediu */
+    margin: 0 auto; 
+    padding-top: 20px; 
 }
 
 .rodape-coluna {
@@ -512,6 +472,7 @@ button:focus-visible {
     flex-direction: column;
     gap: 8px; 
 }
+
 .rodape-coluna h4 {
     color: #64748b;
     font-size: 12px;
@@ -531,4 +492,3 @@ button:focus-visible {
 .rodape-coluna a:hover {
     color: #ffffff;
 }
-
