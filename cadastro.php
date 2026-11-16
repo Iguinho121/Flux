@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// Se o utilizador já estiver logado redireciona para o dashboard
+if (isset($_SESSION['usuario_id'])) {
+    header('Location: dashboard.php');
+    exit;
+}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -8,8 +16,6 @@ $tipoMensagem = '';
 
 try {
     require_once __DIR__ . '/init.php';
-    $pdo->query('SELECT 1'); // Testa a conexão
-    
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
@@ -122,7 +128,7 @@ try {
 
             <div class="seletor-abas">
                 <a href="login.php" class="aba">Entrar</a>
-                <a href="index.php" class="aba ativa">Criar conta</a>
+                <a href="cadastro.php" class="aba ativa">Criar conta</a>
             </div>
 
             <div class="cabecalho-form">
@@ -130,10 +136,9 @@ try {
                 <p>Leva menos de um minuto.</p>
             </div>
 
-            <!-- Novo Sistema de Alertas Moderno -->
             <?php if (!empty($mensagem)): ?>
-                <div class="alerta-moderno <?= $tipoMensagem === 'sucesso' ? 'alerta-sucesso' : 'alerta-erro' ?>">
-                    <span class="material-symbols-outlined alerta-icone">
+                <div class="alerta-moderno <?= $tipoMensagem === 'sucesso' ? 'alerta-sucesso' : 'alerta-erro' ?>" style="margin-bottom: 15px; padding: 10px; border-radius: 6px; <?= $tipoMensagem === 'sucesso' ? 'background-color: #112a18; color: #4aff71; border: 1px solid #1a5a2a;' : 'background-color: #2a1111; color: #ff4a4a; border: 1px solid #5a1a1a;' ?>">
+                    <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 18px;">
                         <?= $tipoMensagem === 'sucesso' ? 'check_circle' : 'error' ?>
                     </span>
                     <span><?= htmlspecialchars($mensagem) ?></span>
@@ -206,7 +211,7 @@ try {
                 <div class="rodape-coluna">
                     <h4>Conta</h4>
                     <a href="login.php">Entrar</a>
-                    <a href="index.php">Criar conta</a>
+                    <a href="cadastro.php">Criar conta</a>
                 </div>
 
                 <div class="rodape-coluna">
