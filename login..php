@@ -1,3 +1,45 @@
+<?php
+session_start();
+
+// Se caso ele ja estiver logado ele redireciona para o dashboard
+if (isset($_SESSION['usuario_id'])) {
+    header('Location: dashboard.php'); 
+    exit;
+}
+
+$erro = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once __DIR__ . '/init.php';
+
+    $email = trim($_POST['email'] ?? '');
+    $senha = $_POST['senha'] ?? '';
+
+    if (empty($email) || empty($senha)) {
+        $erro = 'Por favor, preencha todos os campos.';
+    } else {
+       
+        $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = :email LIMIT 1');
+        $stmt->execute(['email' => $email]);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
+            
+            
+            $_SESSION['usuario_id'] = $usuario['id'];
+            $_SESSION['usuario_nome'] = $usuario['nome'];
+            $_SESSION['usuario_email'] = $usuario['email'];
+            
+            // Volta para o cadastro
+            header('Location: dashboard.php'); 
+            exit;
+        } else {
+            $erro = 'E-mail ou senha incorretos.';
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -56,21 +98,26 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
 
         <form action="" method="POST">
 
             <div class="seletor-abas">
-                <a href="login.html" class="aba ativa">Entrar</a>
-                <a href="cadastro.html" class="aba">Criar conta</a>
+                <a href="login.php" class="aba ativa">Entrar</a>
+                <a href="cadastro.php" class="aba">Criar conta</a>
             </div>
 
             <div class="cabecalho-form">
                 <h2>Bem-vindo de volta</h2>
                 <p>Entre com seu e-mail e senha.</p>
+                
+                <!-- Mensagem de erro caso ocorra -->
+                <?php if (!empty($erro)): ?>
+                    <p style="color: #ff4a4a; background-color: #2a1111; padding: 10px; border-radius: 6px; margin-top: 15px; font-size: 14px; border: 1px solid #5a1a1a;">
+                        <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle; margin-right: 5px;">error</span>
+                        <?= htmlspecialchars($erro) ?>
+                    </p>
+                <?php endif; ?>
             </div>
 
             <div class="campo-grupo">
@@ -97,7 +144,7 @@
 
         </form>
     </div>
-    </div>
+    
     <footer class="rodape-avancado">
         <div class="rodape-conteudo">
 
@@ -124,8 +171,8 @@
 
                 <div class="rodape-coluna">
                     <h4>Conta</h4>
-                    <a href="login.html">Entrar</a>
-                    <a href="cadastro.html">Criar conta</a>
+                    <a href="login.php">Entrar</a>
+                    <a href="cadastro.php">Criar conta</a>
                 </div>
 
                 <div class="rodape-coluna">
