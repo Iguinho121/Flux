@@ -1,0 +1,627 @@
+/* ============================================================
+   RoboParts | Cadastro de componente
+   Estilos exclusivos da página de cadastro (tema escuro)
+   ============================================================ */
+
+:root {
+    color-scheme: dark;
+
+    /* Fundos */
+    --fundo-sidebar: #0c111f;
+    --card: #121826;
+    --campo: #1f283a;
+
+    /* Bordas */
+    --borda: #202936;
+    --borda-campo: #344054;
+    --borda-hover: #475467;
+
+    /* Textos */
+    --texto: #f8fafc;
+    --texto-2: #95a2b7;
+    --texto-3: #a0aec4;
+    --texto-label: #cbd5e1;
+
+    /* Destaques */
+    --azul: #477ef2;
+    --azul-hover: #3b6fe0;
+    --azul-fundo: #121c3c;
+    --azul-borda: #192a5e;
+    --verde: #00b882;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto);
+    background-color: #1c2540;
+    /* Grade (linhas a cada 40px e 200px) + brilho azul + degradê, como na página principal */
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px),
+        radial-gradient(circle 380px at 400px 230px, rgba(0, 98, 255, .13), transparent),
+        linear-gradient(190deg, #0f182e 0%, #283251 54%, #262a2f 100%);
+    background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px, auto, auto;
+    background-attachment: fixed;
+}
+
+.icone {
+    flex-shrink: 0;
+    user-select: none;
+}
+
+/* ---------- Menu lateral ---------- */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    padding: 22px 16px 36px;
+    overflow-y: auto;
+    background: var(--fundo-sidebar);
+    border-right: 1px solid var(--campo);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 8px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    line-height: 1;
+}
+
+.sidebar-brand .icone {
+    font-size: 28px;
+    color: var(--azul);
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-menu li {
+    flex-shrink: 0;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 44px;
+    padding: 0 15px;
+    color: var(--texto-2);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    transition: background-color .15s, color .15s;
+}
+
+.sidebar-menu .icone {
+    font-size: 20px;
+}
+
+.sidebar-menu a:hover {
+    color: #e2e8f0;
+    background: #171c29;
+}
+
+.sidebar-menu li.active a {
+    color: var(--azul);
+    background: var(--azul-fundo);
+    border-color: var(--azul-borda);
+}
+
+.sidebar-rodape {
+    margin-top: auto;
+    padding: 24px 4px 0;
+}
+
+.sidebar-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 16px 14px;
+    text-align: center;
+    background: linear-gradient(135deg, #1f283a, #111729);
+    border: 1px solid var(--borda-campo);
+    border-radius: 12px;
+}
+
+.sidebar-card .icone {
+    font-size: 40px;
+    color: var(--azul);
+}
+
+.sidebar-card strong {
+    margin-top: 8px;
+    color: var(--texto);
+    font-size: 14px;
+}
+
+.sidebar-card p {
+    margin: 0;
+    color: var(--texto-2);
+    font-size: 12px;
+}
+
+.sidebar-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 16px 0 0;
+    color: var(--texto-3);
+    font-size: 12px;
+}
+
+.ponto-online {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--verde);
+    box-shadow: 0 0 0 3px rgba(0, 184, 130, .15);
+}
+
+/* ---------- Área principal ---------- */
+
+.principal {
+    display: flex;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin-left: 260px;
+    padding: 24px 28px;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.cabecalho {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.breadcrumb {
+    margin: 0 0 8px;
+    color: var(--azul);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.text-cabecalho {
+    margin: 0;
+    color: var(--texto);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.text2-cabecalho {
+    margin: 8px 0 0;
+    color: var(--texto-2);
+    font-size: 14px;
+}
+
+/* ---------- Botões ---------- */
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 20px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: background-color .15s, border-color .15s, color .15s;
+}
+
+.botao .icone {
+    font-size: 20px;
+}
+
+.botao-primario {
+    color: #fff;
+    background: var(--azul);
+}
+
+.botao-primario:hover {
+    background: var(--azul-hover);
+}
+
+.botao-secundario {
+    color: #e2e8f0;
+    background: var(--campo);
+    border-color: var(--borda-campo);
+}
+
+.botao-secundario:hover {
+    color: #fff;
+    background: #263147;
+    border-color: var(--borda-hover);
+}
+
+.botao:focus-visible,
+.sidebar-menu a:focus-visible,
+.mensagem a:focus-visible {
+    outline: 2px solid var(--azul);
+    outline-offset: 2px;
+}
+
+/* ---------- Mensagens de sucesso e erro ---------- */
+
+.mensagem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0 0 16px;
+    padding: 14px 18px;
+    border: 1px solid;
+    border-radius: 12px;
+}
+
+.mensagem .icone {
+    font-size: 22px;
+}
+
+.mensagem strong {
+    display: block;
+    color: var(--texto);
+    font-weight: 600;
+}
+
+.mensagem p {
+    margin: 2px 0 0;
+    color: var(--texto-2);
+}
+
+.mensagem a {
+    color: var(--azul);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.mensagem a:hover {
+    text-decoration: underline;
+}
+
+.mensagem ul {
+    margin: 6px 0 0;
+    padding-left: 18px;
+    color: #fca5a5;
+}
+
+.mensagem-sucesso {
+    background: #0f2a2f;
+    border-color: #0b584c;
+}
+
+.mensagem-sucesso .icone {
+    color: #1dc59a;
+}
+
+.mensagem-erro {
+    background: #2b1a22;
+    border-color: #6b2a35;
+}
+
+.mensagem-erro .icone {
+    color: #f87171;
+}
+
+/* ---------- Formulário ---------- */
+
+/* Campos independentes distribuídos por toda a largura disponível. */
+.form-cadastro {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    /* Os campos crescem, não apenas o espaço antes dos botões. */
+    grid-template-rows: repeat(3, minmax(min-content, 1fr)) auto;
+    flex: 1;
+    align-items: stretch;
+    gap: 18px;
+    background: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    /* O conteúdo começa sempre no topo, com ou sem texto de ajuda. */
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
+    grid-column: span 3;
+    min-width: 0;
+    padding: clamp(18px, 2.4vh, 28px);
+    color: var(--texto);
+    background: rgba(32, 46, 70, .82);
+    border: 1px solid rgba(145, 169, 204, .25);
+    border-radius: 12px;
+}
+
+.campo-nome,
+.campo-descricao {
+    grid-column: span 6;
+}
+
+.campo-quantidade_total,
+.campo-quantidade_disponivel,
+.campo-estoque_minimo {
+    grid-column: span 4;
+}
+
+.campo:focus-within {
+    border-color: var(--azul);
+}
+
+.confirmacao-cadastro {
+    padding: 24px;
+}
+
+.confirmacao-cadastro .botao {
+    margin-top: 16px;
+    color: #fff;
+}
+
+.campo label {
+    display: block;
+    flex-shrink: 0;
+    /* Reserva duas linhas iguais para alinhar também os campos com nomes longos. */
+    min-height: 42px;
+    margin: 0;
+    padding: 0;
+    color: var(--texto-label);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    text-align: left;
+}
+
+.obrigatorio {
+    color: var(--azul);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    flex-shrink: 0;
+    height: clamp(48px, 6vh, 64px);
+    padding: 0 14px;
+    color: var(--texto);
+    font: inherit;
+    font-size: 14px;
+    background-color: var(--campo);
+    border: 1px solid var(--borda-campo);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.campo textarea {
+    flex: 1;
+    height: auto;
+    min-height: 110px;
+    padding: 11px 14px;
+    resize: vertical;
+}
+
+.campo select {
+    padding-right: 42px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2395a2b7' d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+}
+
+/* "Selecione" aparece apagado, como um placeholder */
+.campo select:invalid {
+    color: var(--texto-3);
+}
+
+.campo select option {
+    color: var(--texto);
+    background: var(--card);
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: var(--texto-3);
+}
+
+.campo input:hover,
+.campo select:hover,
+.campo textarea:hover {
+    border-color: var(--borda-hover);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px rgba(71, 126, 242, .18);
+}
+
+/* O código aparece em maiúsculas enquanto é digitado */
+input.campo-codigo:not(:placeholder-shown) {
+    text-transform: uppercase;
+}
+
+.dica {
+    display: block;
+    margin: 0;
+    color: var(--texto-3);
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.form-rodape {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    grid-column: 1 / -1;
+    padding: 0;
+    color: var(--texto);
+    background: transparent;
+    border: 0;
+}
+
+.rodape-dica {
+    margin: 0;
+    color: var(--texto-3);
+    font-size: 13px;
+}
+
+.acoes {
+    display: flex;
+    gap: 12px;
+    margin-left: auto;
+}
+
+/* ---------- Telas menores ---------- */
+
+@media (max-width: 1200px) {
+    .form-cadastro {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(6, minmax(min-content, 1fr)) auto;
+    }
+
+    .campo {
+        grid-column: auto;
+    }
+
+    .campo-nome,
+    .campo-descricao,
+    .campo-estoque_minimo {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: static;
+        width: auto;
+        padding: 16px;
+        border-right: 0;
+        border-bottom: 1px solid var(--campo);
+    }
+
+    .sidebar-menu {
+        flex-direction: row;
+        margin-top: 14px;
+        overflow-x: auto;
+    }
+
+    .sidebar-menu a {
+        height: 40px;
+        white-space: nowrap;
+        
+    }
+
+    .sidebar-rodape {
+        display: none;
+    }
+
+    /* Com o menu acima, mantém rolagem natural e evita altura artificial. */
+    .principal {
+        min-height: 0;
+        margin-left: 0;
+        padding: 24px 18px;
+    }
+
+    .form-cadastro {
+        flex: initial;
+        grid-template-rows: none;
+    }
+
+    .campo input,
+    .campo select {
+        height: 48px;
+    }
+}
+
+@media (max-width: 640px) {
+    .form-cadastro {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .campo {
+        grid-column: 1 / -1;
+        padding: 16px;
+    }
+
+    .campo label {
+        min-height: 21px;
+    }
+
+    .acoes {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .botao {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
